@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>😂 Python Joke Generator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="emoji-title">😂</div>
+      <h1>Joke Generator</h1>
+      <p class="subtitle">Powered by Python &amp; Flask</p>
+    </header>
+
+    <main class="card" id="joke-card">
+      <div id="joke-content" class="joke-content">
+        <p class="joke-placeholder">Click the button below to get your first joke!</p>
+      </div>
+
+      <div id="error-message" class="error-message hidden">
+        <span>⚠️ Something went wrong. Please try again.</span>
+      </div>
+
+      <div id="loading" class="loading hidden">
+        <div class="spinner"></div>
+        <p>Fetching a joke…</p>
+      </div>
+
+      <div class="badge-row" id="category-badge-row" style="display:none;">
+        <span class="badge" id="category-badge"></span>
+        <span class="badge badge-source" id="source-badge"></span>
+      </div>
+    </main>
+
+    <button class="btn" id="joke-btn" onclick="fetchJoke()">
+      🎲 Get New Joke
+    </button>
+  </div>
+
+  <footer class="footer">
+    <p>Built with ❤️ using Python &amp; Flask · Jokes from <a href="https://jokeapi.dev/" target="_blank" rel="noopener">JokeAPI</a></p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
