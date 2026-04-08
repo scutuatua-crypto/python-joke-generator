@@ -1,0 +1,236 @@
+/* ── Reset & base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  color: #333;
+  padding: 1.5rem;
+}
+
+/* ── Layout ── */
+.container {
+  width: 100%;
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* ── Header ── */
+.header {
+  text-align: center;
+  color: #fff;
+}
+
+.emoji-title {
+  font-size: 4rem;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+
+.header h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  opacity: 0.85;
+  margin-top: 0.25rem;
+}
+
+/* ── Card ── */
+.card {
+  width: 100%;
+  background: #fff;
+  border-radius: 1.25rem;
+  padding: 2rem 2.25rem;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.1rem;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+/* ── Joke text ── */
+.joke-content {
+  width: 100%;
+  text-align: center;
+}
+
+.joke-placeholder {
+  font-size: 1.05rem;
+  color: #888;
+  font-style: italic;
+}
+
+.joke-setup {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.joke-delivery {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #764ba2;
+  line-height: 1.5;
+}
+
+.joke-single {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ── Fade animation ── */
+.fade-in {
+  animation: fadeIn 0.45s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Loading spinner ── */
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.spinner {
+  width: 36px;
+  height: 36px;
+  border: 4px solid #e0e0e0;
+  border-top-color: #764ba2;
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Error message ── */
+.error-message {
+  color: #c0392b;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* ── Badges ── */
+.badge-row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  background: #ede9fe;
+  color: #6d28d9;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-source {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+/* ── Button ── */
+.btn {
+  padding: 0.85rem 2.25rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(118, 75, 162, 0.45);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+  user-select: none;
+}
+
+.btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(118, 75, 162, 0.55);
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 4px 14px rgba(118, 75, 162, 0.4);
+}
+
+.btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* ── Footer ── */
+.footer {
+  margin-top: 0.5rem;
+  text-align: center;
+  color: rgba(255,255,255,0.75);
+  font-size: 0.82rem;
+}
+
+.footer a {
+  color: rgba(255,255,255,0.95);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ── Utility ── */
+.hidden {
+  display: none !important;
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .header h1 { font-size: 1.75rem; }
+  .emoji-title { font-size: 3rem; }
+  .card { padding: 1.5rem 1.25rem; }
+  .btn { padding: 0.75rem 1.75rem; font-size: 0.95rem; }
+}
